@@ -1,7 +1,12 @@
 import React from "react";
 import moment from "moment";
 
-const RulesCalendar = ({ title, numberOfWeeks, startDayOfWeek }) => {
+const RulesCalendar = ({
+	title,
+	numberOfWeeks,
+	startDayOfWeek,
+	width = 700
+}) => {
 	const monthName = moment().format("MMMM");
 	console.log(monthName);
 	// console.log(startDate);
@@ -12,7 +17,7 @@ const RulesCalendar = ({ title, numberOfWeeks, startDayOfWeek }) => {
 		.slice(startDayOfWeek, weekdays.length)
 		.concat(weekdays.slice(0, startDayOfWeek));
 	return (
-		<div className="calendar">
+		<div className="calendar" style={{ width: width + "px" }}>
 			<div className="calendar__title">{title}</div>
 			<div className="calendar__weekday-row">
 				{sortedWeekdays.map(weekday => (
